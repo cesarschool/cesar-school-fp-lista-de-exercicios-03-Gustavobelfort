@@ -33,8 +33,19 @@
 # Para a correta execução do programa, a estrutura atual deve ser mantida,
 # substituindo apenas o comando print(questão...) existente.
 ##
+from operator import itemgetter
+
+values_list = []
+
 def main():
-    print("questao 4")
+    while True:
+        user_input = input()
+        if user_input == '':
+            break
+        user_input = user_input.split(',')
+        values_list.append(tuple(user_input))    
+    print(sorted(values_list, key=itemgetter(0,1,2)))   
+
 
 
     

@@ -37,8 +37,41 @@
 # Para a correta execução do programa, a estrutura atual deve ser mantida,
 # substituindo apenas o comando print(questão...) existente.
 ##
+cima = 0
+baixo = 0
+direita = 0
+esquerda = 0
+
 def main():
-    print("questao 3")
+
+    def classify(a):
+        global cima
+        global baixo
+        global direita
+        global esquerda
+
+        a = a.split(' ')
+
+        if a[0] == 'CIMA':
+            cima += int(a[1])
+        if a[0] == 'BAIXO':
+            baixo += int(a[1])
+        if a[0] == 'DIREITA':
+            direita += int(a[1])
+        if a[0] == 'ESQUERDA':
+            esquerda += int(a[1])
+
+    while True:
+        b = input()
+        if b == '':
+            break
+        else:
+            classify(b)
+            continue
+
+    rounded = ((baixo - cima)**2 + (esquerda - direita)**2 )**(1/2)
+    print( round(rounded))
+
 
 
     

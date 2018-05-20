@@ -44,10 +44,52 @@
 # Para a correta execução do programa, a estrutura atual deve ser mantida,
 # substituindo apenas o comando print(questão...) existente.
 ##
+
 def main():
-    print("questao 5")
-
-
     
+    a = ''    
+
+    def encrypt(s,n):
+
+        if s.isupper():
+            se = ord(s)
+            if ( se + n ) > 90:
+                se = (se + n) - 90 + 64
+            else:
+                se = se + n
+            
+            return chr(se)
+
+
+        if s.islower():
+            se = ord(s)
+            if ( se + n ) > 122:
+                se = (se + n) - 122 + 96
+            else:
+                se = se + n
+            
+            return chr(se)
+
+        else:
+            return s
+
+
+
+    user_input = input()
+    rot = user_input.split(' ' ,1)
+    rot_value = rot[0].split('ROT', 1)
+
+    if rot_value[0] == '' and rot[1].replace(' ','').strip('?:!.,;').isalpha():
+   
+        for i in rot[1]:
+            a += encrypt(i,int(rot_value[1]))
+        
+        print(a)
+
+    else:
+
+        print('Erro')
+    
+
 if __name__ == '__main__':
     main()

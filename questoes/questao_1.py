@@ -27,10 +27,56 @@
 # Para a correta execução do programa, a estrutura atual deve ser mantida,
 # substituindo apenas o comando print(questão...) existente.
 ##
-def main():
-    print("questao 1")
-    
 
+def main():
+    def checkAlpha(var):
+        for i in var:
+            if i.isalpha() == True :
+                return True     
+
+    def checkNumber(var):
+        for i in var:
+            if i.isnumeric() == True :
+                return True
+    
+    def checkUpper(var):
+        for i in var:
+            if i.isupper() == True :
+                return True
+
+    def checkLower(var):
+        for i in var:
+            if i.islower() == True :
+                return True
+
+    def checkSpecial(var):
+        char1 = '$'
+        char2 = '#' 
+        char3 = '@'
+        for i in var:
+            if i == char1 or i == char2 or i == char3 :
+                return True
+
+    def checkLen(var):
+        if len(var) >= 6 and len(var) <= 12 :
+            return True
+
+    def checkAll(var):
+        if checkLen(var) and checkNumber(var) and checkUpper(var) and checkLower(var) and checkAlpha(var) and checkSpecial(var): 
+            return True
+
+    password = input()
+
+    password = password.split(',')
+
+    right = []
+
+    for word in password :
+        if checkAll(word) == True:
+            right.append(word)
+        else:
+            continue
+    print(','.join(right))    
 
 if __name__ == '__main__':
     main()

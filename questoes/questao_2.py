@@ -27,7 +27,16 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 2")
+    words = input()
+    words = words.split()
+    multiples = []
+    for i in words:
+        multiples.append("{}:{}".format(i,words.count(i)))
+    multiples = list(set(multiples))
+    multiples = sorted(multiples)
+    for i in multiples:
+        print(i)
+
 
 
 
